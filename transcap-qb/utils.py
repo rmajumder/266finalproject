@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[33]:
 
 
 from collections import Counter
@@ -11,26 +11,9 @@ import spacy
 en_nlp = spacy.load("en")
 
 
-# In[16]:
+# In[34]:
 
 
-"""
-def get_position(sptoks, position):
-    from_idx = int(position.split(',')[0])
-    to_idx = int(position.split(',')[1])
-    if from_idx == to_idx == 0:
-        pos_info = [0] * len(sptoks)
-    else:
-        aspect_is = []
-        for sptok in sptoks:
-            if sptok.idx < to_idx and sptok.idx + len(sptok.text) > from_idx:
-                aspect_is.append(sptok.i)
-        pos_info = []
-        for _i, sptok in enumerate(sptoks):
-            pos_info.append(min([abs(_i - i) for i in aspect_is]) + 1)
-
-    return pos_info
-"""
 
 def get_position(sptoks, position):
     from_idx = int(position.split(',')[0])
@@ -39,9 +22,6 @@ def get_position(sptoks, position):
         pos_info = [0] * len(sptoks)
     else:
         aspect_is = []
-        #print('-----')
-        #print(sptoks)
-        #print(position)
         
         for sptok in sptoks:
             if sptok.idx < to_idx and sptok.idx + len(sptok.text) > from_idx:
@@ -53,7 +33,7 @@ def get_position(sptoks, position):
     return pos_info
 
 
-# In[3]:
+# In[35]:
 
 
 def get_data_label(label):
@@ -70,7 +50,7 @@ def get_data_label(label):
     return lab
 
 
-# In[12]:
+# In[36]:
 
 
 def data_init(path, DSC):
@@ -107,7 +87,7 @@ def data_init(path, DSC):
     return source_word2idx
 
 
-# In[8]:
+# In[37]:
 
 
 
@@ -116,6 +96,7 @@ def read_data(fname, source_word2idx, mode=None):
     source_loc = list()
     target_mask = list()
     max_length = 85
+    
     target_maxlen = 25
     target_mode = list()
 
@@ -129,13 +110,17 @@ def read_data(fname, source_word2idx, mode=None):
         '''
         sptoks = en_nlp(review[index].strip())
 
+        ### - do not include lengthy reviews
+        if len(sptoks) > 85:
+            continue        
+        
         idx = []
         mask = []
         len_cnt = 0
         for sptok in sptoks:
             
             if len_cnt < max_length:
-                ###
+                ### - check if token exists in word to id dict
                 if sptok.text.lower() in source_word2idx:
                     idx.append(source_word2idx[sptok.text.lower()])
                     mask.append(1.)
@@ -182,7 +167,7 @@ def read_data(fname, source_word2idx, mode=None):
     return np.array(source_data),            np.array(target_data),            np.array(target_label),            np.array(target_mask),            np.array(source_loc),            np.array(target_mode)
 
 
-# In[9]:
+# In[38]:
 
 
 def is_number(s):
@@ -202,7 +187,7 @@ def is_number(s):
     return False
 
 
-# In[10]:
+# In[39]:
 
 
 def init_word_embeddings(path, word2idx, DSC):
@@ -221,7 +206,7 @@ def init_word_embeddings(path, word2idx, DSC):
     return wt
 
 
-# In[11]:
+# In[40]:
 
 
 def separate_hinge_loss(prediction, label, class_num, mode, gamma):

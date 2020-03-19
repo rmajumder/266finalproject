@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[21]:
 
 
 import tensorflow as tf
@@ -11,7 +11,7 @@ from sklearn import metrics
 import numpy as np
 
 
-# In[4]:
+# In[22]:
 
 
 
@@ -151,10 +151,8 @@ class MODEL(object):
                 tr_y = np.concatenate([asc_y, dsc_y], axis=0)
                 tr_tarmask = np.concatenate([asc_tarmask, dsc_tarmask], axis=0)
                 
-                print(asc_loc)
-                print(dsc_loc)
                 
-                tr_loc = np.concatenate([np.stack(asc_loc), dsc_loc], axis=0)
+                tr_loc = np.concatenate([asc_loc, dsc_loc], axis=0)
                 tr_mode = np.concatenate([asc_mode, dsc_mode], axis=0)
 
                 tr_loss = 0.
@@ -259,6 +257,18 @@ class MODEL(object):
 
 
 # In[ ]:
+
+
+
+
+
+# In[6]:
+
+
+
+
+
+# In[9]:
 
 
 
