@@ -2038,5 +2038,915 @@
         "Quality"
       ]
     ]
+  },
+  {
+    "content": "I've had so many issues with this app. Lately it has been extremely slow, it randomly shuts down for no reason in the middle of inputting a transaction and it won't load larger invoices. I'm very disappointed as I use this on a daily basis for my business.",
+    "entities": [
+      [
+        68,
+        72,
+        "Performance"
+      ],
+      [
+        86,
+        97,
+        "Quality"
+      ],
+      [
+        140,
+        151,
+        "Transaction"
+      ],
+      [
+        177,
+        185,
+        "Invoicing"
+      ]
+    ]
+  },
+  {
+    "content": "The app is sometimes slow to respond.",
+    "entities": [
+      [
+        21,
+        25,
+        "Performance"
+      ]
+    ]
+  },
+  {
+    "content": "Disappointed in app. Doesn't correlate well with desktop version. Slow to load information and sometimes won't update accounts.",
+    "entities": [
+      [
+        3,
+        6,
+        "App"
+      ],
+      [
+        66,
+        70,
+        "Performance"
+      ]
+    ]
+  },
+  {
+    "content": "Slow to load information and sometimes won't update accounts.",
+    "entities": [
+      [
+        0,
+        4,
+        "Performance"
+      ]
+    ]
+  },
+  {
+    "content": "Mobile app is slow and frequently fails to load at all.  Not much functionality at all besides creating invoices. ",
+    "entities": [
+      [
+        14,
+        18,
+        "Performance"
+      ],
+      [
+        104,
+        112,
+        "Invoicing"
+      ]
+    ]
+  },
+  {
+    "content": "Not very user friendly... Makes me download my companies data every time I login and TAKES FOREVER and sometimes crashes while downloading it so have to restart the download again. QBO is great but they really need to work on the app cause I could really use it when on the road. But incapable due to its functionality at the moment.",
+    "entities": [
+      [
+        9,
+        22,
+        "Experience"
+      ],
+      [
+        85,
+        98,
+        "Performance"
+      ],
+      [
+        113,
+        120,
+        "Quality"
+      ],
+      [
+        230,
+        233,
+        "App"
+      ]
+    ]
+  },
+  {
+    "content": "Used to love this app. but it has been garbage for some time now. Takes forever to login and load on my iPhone (even slower on my iPad). Once you are finally in adding new customers or saving estimates is just as bad. Have called customer support to find out what is going on and received the response \"we know about the issue and we are working on it\". This was over two months ago. I was added to their escalation list and have yet to receive an update. Horrible customer service. Actively looking for a different direction for our business.",
+    "entities": [
+      [
+        18,
+        21,
+        "App"
+      ],
+      [
+        39,
+        46,
+        "Quality"
+      ],
+      [
+        72,
+        79,
+        "Performance"
+      ],
+      [
+        230,
+        246,
+        "Customer Service"
+      ]
+    ]
+  },
+  {
+    "content": "When it works it's great, I use it every day and every day there is a problem, the system tells me they are having problems, please try again later, takes forever to send email. It's very frustrating when you have a business on the go.",
+    "entities": [
+      [
+        155,
+        162,
+        "Performance"
+      ]
+    ]
+  },
+  {
+    "content": "We have 4 ipad2 running his app to invoice and do estimates on the go. We do field service but often gave problems whether server related or just speed/connection issues. This app is overall ok but need work. AN OFFLINE MODE WOULD BE GREAT! It is very very slow at saving images or signatures and sending emails with documents to customers. Often I have had to stop and reset the app to save a signature and many times I end up writing it up because of the issues. Good luck with it.",
+    "entities": [
+      [
+        35,
+        42,
+        "Invoicing"
+      ],
+      [
+        50,
+        59,
+        "Estimates"
+      ],
+      [
+        257,
+        261,
+        "Performance"
+      ],
+      [
+        163,
+        169,
+        "Quality"
+      ]
+    ]
+  },
+  {
+    "content": "The program is slow and it is hard to find what you want.  Does not compare to their desktop version.",
+    "entities": [
+      [
+        15,
+        19,
+        "Performance"
+      ]
+    ]
+  },
+  {
+    "content": "When adding a note to a customer file ie invoice or estimate the app seems to struggle to keep up...  Typing is really slow and sluggish   iPad retina third-generation",
+    "entities": [
+      [
+        41,
+        48,
+        "Invoicing"
+      ],
+      [
+        52,
+        60,
+        "Estimates"
+      ],
+      [
+        119,
+        123,
+        "Performance"
+      ]
+    ]
+  },
+  {
+    "content": "This app is very very slow.. 10 minutes to load , another 10 minutes to load customer screen, and 15 minutes to apply 1 payment",
+    "entities": [
+      [
+        22,
+        26,
+        "Performance"
+      ]
+    ]
+  },
+  {
+    "content": "The app is difficult to navigate, bloated and slow, using a ton of wireless data.  ",
+    "entities": [
+      [
+        24,
+        32,
+        "Experience"
+      ],
+      [
+        46,
+        50,
+        "Performance"
+      ]
+    ]
+  },
+  {
+    "content": "The program is slow and it is hard to find what you want.  Does not compare to their desktop version.",
+    "entities": [
+      [
+        15,
+        19,
+        "Performance"
+      ]
+    ]
+  },
+  {
+    "content": "Helpful reports and nice review of recent transactions to make sure operations are in tact.",
+    "entities": [
+      [
+        8,
+        15,
+        "Reports"
+      ],
+      [
+        42,
+        54,
+        "Transaction"
+      ]
+    ]
+  },
+  {
+    "content": "Very useful, but needs flexibility for budgeting and more reports. I do most of my work on my iPad so it falls short of desktop online version.",
+    "entities": [
+      [
+        58,
+        65,
+        "Reports"
+      ]
+    ]
+  },
+  {
+    "content": "Works well in Ireland but some difficulties with Irish vat which for small businesses operate on \"Receipts Basis\" for Vat. But work arounds available.. Reporting is great. Emailing invoice is so easy. this is cloud accounting at the best and improving all the time. ",
+    "entities": [
+      [
+        152,
+        161,
+        "Reports"
+      ],
+      [
+        181,
+        188,
+        "Invoicing"
+      ]
+    ]
+  },
+  {
+    "content": "Great app. Allows you to run tons of reports and is fully customizable to suit my business needs.",
+    "entities": [
+      [
+        37,
+        44,
+        "Reports"
+      ]
+    ]
+  },
+  {
+    "content": "Needs the ability to update bank accounts from the bank, as for now it only syncs with updates made on my Windows or Mac computers. Needs access to all reports available. I had hoped this app would be a full version substitute when a laptop or desktop computer is not available.",
+    "entities": [
+      [
+        152,
+        159,
+        "Reports"
+      ],
+      [
+        188,
+        191,
+        "App"
+      ]
+    ]
+  },
+  {
+    "content": "This application and online service is the best I have ever used. It keeps me up to date with all book keeping. The reports it provide makes doing taxes a synch. The only thing I haven't mastered is tracking all jobs separately. If I can get this program to give me a report identifying what the profit was on each job that would help tremendously. I am fairly a new user about 2 years off and on. Other than that, I give this app ",
+    "entities": [
+      [
+        116,
+        122,
+        "Reports"
+      ],
+      [
+        5,
+        8,
+        "App"
+      ]
+    ]
+  },
+  {
+    "content": "I've been using the app for 4 months now. It's great if you're a small business owner that wants to be able to pull reports on the go without having to carry your laptop around. ",
+    "entities": [
+      [
+        20,
+        23,
+        "App"
+      ],
+      [
+        116,
+        123,
+        "Reports"
+      ]
+    ]
+  },
+  {
+    "content": "I've been a QBO user for 32 months now and run my whole one-man business on it. Each app version is a bit better than the last and they do fix bugs when notified. I continue to be happy to see Intuit continue to improve the app and the web interface. The latest version of the iPad app significantly improves the Reports category. The invoice and estimates form disaster of May 2015 has been rectified they've rolled dissatisfied customers back to the old forms and are reworking the new ones.",
+    "entities": [
+      [
+        313,
+        320,
+        "Reports"
+      ],
+      [
+        335,
+        342,
+        "Invoicing"
+      ],
+      [
+        347,
+        356,
+        "Estimates"
+      ]
+    ]
+  },
+  {
+    "content": "Some other things that would be nice to be able to freeze the top bar of your product list or customers or reports as well as possibly changing to bold format to highlight your products and services primary category from its subcategories. I have recently been trying invoice to go which seems very more user-friendly if QuickBooks cannot get their act together that maybe my go to program.",
+    "entities": [
+      [
+        107,
+        114,
+        "Reports"
+      ],
+      [
+        268,
+        275,
+        "Invoicing"
+      ],
+      [
+        304,
+        317,
+        "Experience"
+      ]
+    ]
+  },
+  {
+    "content": "I run our homeowners association with a budget of less than 100k. Quickbooks is the perfect app for managing the everyday finances for our small business. It literally takes less than 15 minutes every quarter to send out 24 invoices to homeowners. The previous board spent hours sending out invoices. The account also links perfectly with our bank account so reconciling all income and expenses is simple and quick. Reporting meets our basic needs and allows me to share information with our board members automatically every month. The UI is very intuitive and pleasing as well. Overall, the cost/benefit of the app is perfect for our needs.",
+    "entities": [
+      [
+        92,
+        95,
+        "App"
+      ],
+      [
+        224,
+        232,
+        "Invoicing"
+      ],
+      [
+        416,
+        425,
+        "Reports"
+      ]
+    ]
+  },
+  {
+    "content": "Ideally, any app should be as close as possible to the desktop experience. Whilst still lacking in key features & reports, this app wins easily when compared to its contemporaries. The app is very stable and permit multi file access, which is very useful. Basic tasks such invoicing & reciting can be performed (and emailed) etc, but bank rec nciliations can't be reconciled as yet. So 4/5 from me...",
+    "entities": [
+      [
+        114,
+        121,
+        "Reports"
+      ],
+      [
+        13,
+        16,
+        "App"
+      ],
+      [
+        273,
+        282,
+        "Invoicing"
+      ]
+    ]
+  },
+  {
+    "content": "Absolutely love it! I love the fact that I can access my reports from anywhere, Mac, iPad or iPhone.",
+    "entities": [
+      [
+        57,
+        64,
+        "Reports"
+      ]
+    ]
+  },
+  {
+    "content": "Although I do like Quickbooks Online, the mobile app version is HORRIBLE.  I downloaded and logged in and it did give me my balance sheet, but said I had no expenses, I could not find a way to put in a journal entry and other reports showed zeros as well.  I deleted it from my iPad and will just use the non-app version ( which you need google chrome vs safari to work properly- not a big deal but a bit odd).",
+    "entities": [
+      [
+        49,
+        52,
+        "App"
+      ],
+      [
+        124,
+        137,
+        "Reports"
+      ],
+      [
+        157,
+        165,
+        "Expenses"
+      ],
+      [
+        202,
+        215,
+        "Transaction"
+      ],
+      [
+        226,
+        233,
+        "Reports"
+      ]
+    ]
+  },
+  {
+    "content": "I have come to really like quick books online. Quoting, invoicing, reports and my personal favourite... it links with your bank account to automate expense inputs. You set the rules once and the next time a similar transaction appears in your linked bank account it automatically categorises the transaction for you, just hit 'add'. Saves me so much time and effort and to me it's fast becoming a business tool I simply wouldn't be without.",
+    "entities": [
+      [
+        56,
+        65,
+        "Invoicing"
+      ],
+      [
+        67,
+        74,
+        "Reports"
+      ],
+      [
+        215,
+        226,
+        "Transaction"
+      ]
+    ]
+  },
+  {
+    "content": "Brilliant software-you need to allow yourself a couple of hours to set up but once done it does all your reporting for you and keeps your finger on the pulse with your financial status - I love it!",
+    "entities": [
+      [
+        105,
+        114,
+        "Reports"
+      ]
+    ]
+  },
+  {
+    "content": "If I can navigate this app, anyone can! Super easy and really professional. I'm loving it! I love the different reports as well. Thank you!",
+    "entities": [
+      [
+        112,
+        119,
+        "Reports"
+      ]
+    ]
+  },
+  {
+    "content": "The app couldn't log me in to begin with, but once that was sorted out, it ... Wasn't worth installing. There's no reporting; not even a basic P&L. Seeing income that's not invoice related is impossible. Editing payment details is clunky. Given how much access to QB costs, this is incredibly basic.",
+    "entities": [
+      [
+        143,
+        146,
+        "Reports"
+      ],
+      [
+        115,
+        124,
+        "Reports"
+      ]
+    ]
+  },
+  {
+    "content": "Support is useless or you really can’t recover the emails you sending to the clients with your invoice",
+    "entities": [
+      [
+        0,
+        7,
+        "Customer Service"
+      ],
+      [
+        95,
+        102,
+        "Invoicing"
+      ]
+    ]
+  },
+  {
+    "content": "Their customer support people were friendly but were just following basic troubleshooting and even the supervisor I spoke with at the end was unable to make any headway putting a credit card on my account.  I’ll be checking out other solutions like Clientbooks since I don’t want to risk having my data being treated this way.",
+    "entities": [
+      [
+        6,
+        22,
+        "Customer Service"
+      ]
+    ]
+  },
+  {
+    "content": "This app needs serious attention.  After years of putting up with this hot mess I’m fed up and rarely use it any more.  No matter what I do I can’t get data to load that is any more recent than 2016 for most vendors.  No one from tech support replies - ever.   American Express transactions can’t be synched or approved in the app.  About the only thing it’s useful for is matching typical transactions in our checking account.",
+    "entities": [
+      [
+        5,
+        8,
+        "App"
+      ],
+      [
+        230,
+        242,
+        "Customer Service"
+      ],
+      [
+        278,
+        290,
+        "Transaction"
+      ]
+    ]
+  },
+  {
+    "content": "I’ve been quickbooks user for a long time and discovered this app gives a totally different set of numbers than quickbooks online does. Expenses are different than real version so please beware, you can’t trust the numbers. Contacted support to no avail. I guess they don’t read the other reviews either.",
+    "entities": [
+      [
+        234,
+        241,
+        "Customer Service"
+      ]
+    ]
+  },
+  {
+    "content": "I’ve been quickbooks user for a long time and discovered this app gives a totally different set of numbers than quickbooks online does. Expenses are different than real version so please beware, you can’t trust the numbers. Contacted support to no avail. I guess they don’t read the other reviews either.Received a response from developer tried all their suggestions results the same. My mobile app doesn’t display an accurate picture of expenses. Many others have noted the same thing. The solution isn’t to delete and reinstall the app. That’s not a solution that’s a work around.",
+    "entities": [
+      [
+        136,
+        144,
+        "Expenses"
+      ],
+      [
+        234,
+        241,
+        "Customer Service"
+      ],
+      [
+        62,
+        65,
+        "App"
+      ]
+    ]
+  },
+  {
+    "content": "When they updated the app they changed how bank deposits are recorded. It used to be from the home screen you could tap the plus sign and in addition to entering a debit you could add a deposit. They took that away and I was confused. But their customer support responded quickly to my review explaining that they had moved it to the top three bars.",
+    "entities": [
+      [
+        22,
+        25,
+        "App"
+      ],
+      [
+        245,
+        261,
+        "Customer Service"
+      ]
+    ]
+  },
+  {
+    "content": "Been using qb for may years, the last few years have been tough for them. We use our Mobile app constantly, but it has many issues. It constantly crashes and some day it just won't open. Not acceptable. We have taken to customers service many times, but the problems still persist. I get it growing pains  right ? Is just too much. We are looking for an alternative software like cero.  Sad but qb get 1 star .",
+    "entities": [
+      [
+        92,
+        95,
+        "App"
+      ],
+      [
+        220,
+        237,
+        "Customer Service"
+      ]
+    ]
+  },
+  {
+    "content": "Customer service is hurting. Wish they had a 1800 # or immediate online chat support like so many other software companies.",
+    "entities": [
+      [
+        0,
+        16,
+        "Customer Service"
+      ]
+    ]
+  },
+  {
+    "content": "So easy to use, perfect for my tiny business. Don't need accounting skills the workflow has been designed very well and support is great.",
+    "entities": [
+      [
+        120,
+        127,
+        "Customer Service"
+      ]
+    ]
+  },
+  {
+    "content": "Software is straight forward and easy to use and if you are unsure, the support team explain everything.",
+    "entities": [
+      [
+        72,
+        79,
+        "Customer Service"
+      ]
+    ]
+  },
+  {
+    "content": "Have used for 4 years.  Always learning new things.  Have a great customer service / support.  Very user friendly for us biz owners who don't have a background in billing / payroll.",
+    "entities": [
+      [
+        66,
+        82,
+        "Customer Service"
+      ]
+    ]
+  },
+  {
+    "content": "Great App but have had issues with mileage tracking freezing up while I am categorizing. It then kicks me out.",
+    "entities": [
+      [
+        6,
+        9,
+        "App"
+      ],
+      [
+        23,
+        29,
+        "Quality"
+      ],
+      [
+        35,
+        51,
+        "Mileage Tracking"
+      ]
+    ]
+  },
+  {
+    "content": "Never knew how much time you spend in transit until the mileage tracking app was installed.",
+    "entities": [
+      [
+        56,
+        72,
+        "Mileage Tracking"
+      ],
+      [
+        73,
+        76,
+        "App"
+      ]
+    ]
+  },
+  {
+    "content": "Since a few updates ago when fingerprint sign in was introduced, I've had problems with mileage logging never logs it properly and data is never saved 😡",
+    "entities": [
+      [
+        88,
+        95,
+        "Mileage Tracking"
+      ]
+    ]
+  },
+  {
+    "content": "Since the update I am not able to find the mileage tracking feature on the Android app",
+    "entities": [
+      [
+        10,
+        16,
+        "Update"
+      ],
+      [
+        43,
+        59,
+        "Mileage Tracking"
+      ]
+    ]
+  },
+  {
+    "content": "Lot of features in Mobile does not work. Like adding mileage gives error all the time, adding an expense gives an error, but when you see it online expenses are added. ",
+    "entities": [
+      [
+        53,
+        60,
+        "Mileage Tracking"
+      ],
+      [
+        97,
+        104,
+        "Expenses"
+      ]
+    ]
+  },
+  {
+    "content": "So far QuickBooks support has not been able to get the mileage tracking feature to work on my phone.  IPhone6. Won’t manually of automatically track mileage and WB support has not resolved or explained why.  Partial functionality is not good enough!",
+    "entities": [
+      [
+        18,
+        25,
+        "Customer Service"
+      ],
+      [
+        55,
+        71,
+        "Mileage Tracking"
+      ],
+      [
+        143,
+        156,
+        "Mileage Tracking"
+      ]
+    ]
+  },
+  {
+    "content": "I was having trouble with the mileage tracker and now with the update I can’t even check the settings.  Please fix this.  I am paying for this service to help run my business.  This isn’t a free game app.",
+    "entities": [
+      [
+        30,
+        45,
+        "Mileage Tracking"
+      ],
+      [
+        63,
+        69,
+        "Update"
+      ]
+    ]
+  },
+  {
+    "content": "This app does not track mileage as advertised",
+    "entities": [
+      [
+        18,
+        31,
+        "Mileage Tracking"
+      ]
+    ]
+  },
+  {
+    "content": "I upgraded to this account from the self employed version and the mileage is a joke. I thought the self employed was horrible. It completely missed a whole day of travel and cut’s off trips in the middle of traveling. Or cuts the trips starting and ending if it even records the visit.",
+    "entities": [
+      [
+        66,
+        73,
+        "Mileage Tracking"
+      ],
+      [
+        184,
+        189,
+        "Mileage Tracking"
+      ]
+    ]
+  },
+  {
+    "content": "The mileage tracking is an absolute nightmare. Stop trying to use my current locating and let me actual choose the locations I have saved. So, frustrating when your trying to bounce from job to job.",
+    "entities": [
+      [
+        4,
+        20,
+        "Mileage Tracking"
+      ]
+    ]
+  },
+  {
+    "content": "The App works well except for mileage tracking",
+    "entities": [
+      [
+        30,
+        46,
+        "Mileage Tracking"
+      ]
+    ]
+  },
+  {
+    "content": "I’ve used this App for 2019 mileage and expense tracking. But every week I have to reconnect my bank account. LIKE EVERY SINGLE WEEK! Why?? I don’t have time to do that. Fix this! Or I’ll be forced to find a better working service!",
+    "entities": [
+      [
+        28,
+        35,
+        "Mileage Tracking"
+      ]
+    ]
+  },
+  {
+    "content": "False advertising. The mileage tracking screen shot is from the self employed app, not the small business app",
+    "entities": [
+      [
+        23,
+        39,
+        "Mileage Tracking"
+      ]
+    ]
+  },
+  {
+    "content": "We need a mileage tracking function in this app, not only to self-employed version, to integrate all the expenses within Quickbooks.",
+    "entities": [
+      [
+        10,
+        26,
+        "Mileage Tracking"
+      ],
+      [
+        105,
+        113,
+        "Expenses"
+      ]
+    ]
+  },
+  {
+    "content": "I recall I primarily looked into a system for mileage tracking, now months later I’m hooked but I still don’t have a solution. The invoicing, banking, etc features are all great! Glad I made the investment, just need to find me a mileage tracker. ",
+    "entities": [
+      [
+        46,
+        62,
+        "Mileage Tracking"
+      ],
+      [
+        131,
+        140,
+        "Invoicing"
+      ],
+      [
+        230,
+        245,
+        "Mileage Tracking"
+      ]
+    ]
+  },
+  {
+    "content": "When I began using mainly the mileage portion I was pleased with what I assumed was a working app. I was able to enter travel between customers by entering a location or tapping the GPS starting point and on completion of the trip I would hit the destination GPS button which filled in the address. Unfortunately, the app doesn’t alway provide the distance. The next problem was I could not save the trip because the distance showed 0 miles, getti",
+    "entities": [
+      [
+        30,
+        37,
+        "Mileage Tracking"
+      ]
+    ]
+  },
+  {
+    "content": "For us professional service peeps can we have time expense and mileage please!",
+    "entities": [
+      [
+        63,
+        70,
+        "Mileage Tracking"
+      ]
+    ]
+  },
+  {
+    "content": "Great set of features. Like the expense tracker. Wish it had a mileage tracker within. Otherwise 5 stars.",
+    "entities": [
+      [
+        32,
+        47,
+        "Mileage Tracking"
+      ],
+      [
+        63,
+        78,
+        "Mileage Tracking"
+      ]
+    ]
+  },
+  {
+    "content": "Overall this app is great for its purpose but the biggest issue is the inability to add GST to invoices. It makes the app almost useless, unless you go out of your way to add the cost of GST as an extra line item in the invoice, but then you have to explain that to your clients which is not very professional looking. Without that ability it's kind of just an expensive mileage and expense tracker (it is a good tracker though). I hope they improve this app a bit more because it could be perfect.",
+    "entities": [
+      [
+        95,
+        103,
+        "Invoicing"
+      ],
+      [
+        371,
+        378,
+        "Mileage Tracking"
+      ]
+    ]
+  },
+  {
+    "content": "This would be a decent app if it could do the very basics of the online version, but it can' track mileage or track hours.  Why?????",
+    "entities": [
+      [
+        93,
+        106,
+        "Mileage Tracking"
+      ]
+    ]
   }
 ]
