@@ -41,6 +41,7 @@ class MODEL(object):
             self.word_id_mapping = word_dict
             self.data_path = data_path
 
+        #Set aspect words position embedding layer
         with tf.name_scope('embeddings'):
             self.word_embedding = tf.Variable(self.w2v, dtype=tf.float32, name='word_embedding', trainable=False)
             position_val = tf.Variable(tf.random_uniform(shape=[self.max_sentence_len-1, self.position_dim],
@@ -48,6 +49,7 @@ class MODEL(object):
             position_pad = tf.zeros([1, self.position_dim])
             self.position_embedding = tf.concat([position_pad, position_val], 0)
 
+        #Initialize training variables
         with tf.name_scope('inputs'):
             self.x = tf.placeholder(tf.int32, [None, self.max_sentence_len], name='x')
             self.loc = tf.placeholder(tf.int32, [None, self.max_sentence_len], name='loc')
@@ -59,7 +61,6 @@ class MODEL(object):
             self.mode = tf.placeholder(tf.float32, [None, 2], name='mode')
 
     def TransCap(self, inputs, target):
-        print('I am TransCap.')
         batch_size = tf.shape(inputs)[0]
 
         inputs = tf.nn.dropout(inputs, keep_prob=self.keep_prob1)
@@ -67,12 +68,16 @@ class MODEL(object):
         inputs = tf.concat([inputs, position], -1)
         x_embedding = tf.expand_dims(inputs,-1)
 
+        #Capsule network (size - 16) to train on two capsule layers - features and semantic with CNN
         with tf.variable_scope('FeatCap_SemanCap'):
             SemanCap = CapsLayer(aspect=target, batch_size=batch_size, num_outputs=self.sc_num, vec_len=self.sc_dim,
                                  iter_routing=self.iter_routing, with_routing=False, layer_type='CONV')
             caps1 = SemanCap(input=x_embedding, mode=self.mode, kernel_size=self.filter_size, stride=1,
                              embedding_dim=self.embedding_dim+self.position_dim)
 
+        #Use learned features from CNN capsule network output and 
+        #train with another capsule network (size - 16) for aspect level sentiment classification 
+        #with fully connected network
         with tf.variable_scope('ASC_ClassCap'):
             ASC_ClassCap = CapsLayer(aspect=target, batch_size=batch_size, num_outputs=self.cc_num, vec_len=self.cc_dim,
                                      iter_routing=3, with_routing=True, layer_type='FC')
@@ -80,6 +85,10 @@ class MODEL(object):
             ASC_sv_length = tf.sqrt(tf.reduce_sum(tf.square(ASC_caps2), axis=2, keepdims=True) + 1e-9)
             ASC_sprob = tf.reshape(ASC_sv_length, [batch_size, self.cc_num])
 
+        #Use learned features from CNN capsule network output and 
+        #train with another capsule network (size - 16) for document level sentiment classification 
+        #with fully connected network
+            
         with tf.variable_scope('DSC_ClassCap'):
             DSC_ClassCap = CapsLayer(aspect=target, batch_size=batch_size, num_outputs=self.cc_num, vec_len=self.cc_dim,
                                      iter_routing=3, with_routing=True, layer_type='FC')
@@ -87,6 +96,7 @@ class MODEL(object):
             DSC_sv_length = tf.sqrt(tf.reduce_sum(tf.square(DSC_caps2), axis=2, keepdims=True) + 1e-9)
             DSC_sprob = tf.reshape(DSC_sv_length, [batch_size, self.cc_num])
 
+        #Use both document 
         sprob = tf.concat([tf.expand_dims(ASC_sprob, 1), tf.expand_dims(DSC_sprob, 1)], axis=1)
 
         return sprob
@@ -126,16 +136,16 @@ class MODEL(object):
             sess.run(init)
 
             # Balancing training data is helpful for CapsNet. Refer to data/{ASC}/balance.py.
-            asc_x, asc_target_word, asc_y, asc_tarmask, asc_loc, asc_mode =                 read_data('{}train/balanced_'.format(self.data_path), self.word_id_mapping, 'ASC')
+            asc_x, asc_target_word, asc_y, asc_tarmask, asc_loc, asc_mode =                 read_data('{}train/balanced_'.format(self.data_path), self.word_id_mapping,                           self.max_sentence_len, self.max_target_len, 'ASC')
 
-            dev_x, dev_target_word, dev_y, dev_tarmask, dev_loc, dev_mode =                 read_data('{}dev/'.format(self.data_path), self.word_id_mapping, 'ASC')
+            dev_x, dev_target_word, dev_y, dev_tarmask, dev_loc, dev_mode =                 read_data('{}dev/'.format(self.data_path), self.word_id_mapping,                           self.max_sentence_len, self.max_target_len, 'ASC')
 
-            te_x, te_target_word, te_y, te_tarmask, te_loc, te_mode =                 read_data('{}test/'.format(self.data_path), self.word_id_mapping, 'ASC')
+            te_x, te_target_word, te_y, te_tarmask, te_loc, te_mode =                 read_data('{}test/'.format(self.data_path), self.word_id_mapping,                           self.max_sentence_len, self.max_target_len, 'ASC')
             
-            ste_x, ste_target_word, ste_y, ste_tarmask, ste_loc, ste_mode =                 read_data('{}smalltest/'.format(self.data_path), self.word_id_mapping, 'ASC')
+            ste_x, ste_target_word, ste_y, ste_tarmask, ste_loc, ste_mode =                 read_data('{}smalltest/'.format(self.data_path), self.word_id_mapping,                           self.max_sentence_len, self.max_target_len, 'ASC')
             
 
-            dsc_x, dsc_target_word, dsc_y, dsc_tarmask, dsc_loc, dsc_mode =                 read_data('{}train/{}_'.format(self.data_path, self.DSC), self.word_id_mapping, 'DSC')
+            dsc_x, dsc_target_word, dsc_y, dsc_tarmask, dsc_loc, dsc_mode =                 read_data('{}train/{}_'.format(self.data_path, self.DSC), self.word_id_mapping,                           self.max_sentence_len, self.max_target_len, 'DSC')
 
             max_dev_acc = 0.0
             min_dev_loss = 1000.0
@@ -273,12 +283,9 @@ class MODEL(object):
                     self.x: x[index],
                     self.y: y[index],
                     self.loc: loc[index],
-                    #self.loc: np.stack(loc[index]),
                     self.aspect_id: target_words[index],
                     self.tar_mask: tar_mask[index],
                     self.mode: mode[index],
-                    #self.keep_prob1: keep_prob1,
-                    #self.keep_prob2: keep_prob2,
                     self.keep_prob1: np.array([keep_prob1]),
                     self.keep_prob2: np.array([keep_prob2])
                 }

@@ -26,9 +26,14 @@ def get_position(sptoks, position):
         for sptok in sptoks:
             if sptok.idx < to_idx and sptok.idx + len(sptok.text) > from_idx:
                 aspect_is.append(sptok.i)
-                    
+        
+        #If the aspect position is not found in the tokens
+        if len(aspect_is) == 0:
+            return None
+        
         pos_info = []
         
+        #Take the aspect with earliest positioning
         for _i, sptok in enumerate(sptoks):
             pos_info.append(min([abs(_i - i) for i in aspect_is]) + 1)
 
@@ -61,6 +66,7 @@ def get_data_label(label):
 # In[10]:
 
 
+#Read all the input files (train, test, dev, smalltest) and create word to id vector
 def data_init(path, DSC):
     source_count = []
     source_word2idx = {}
@@ -86,8 +92,6 @@ def data_init(path, DSC):
             if word not in source_word2idx:
                 source_word2idx[word] = len(source_word2idx)
 
-    # print(source_count)
-    # print(source_word2idx)
     print('max_sentence_length', max_sent_len)
     
     with open(path+DSC+'_word2id.txt', 'w', encoding='utf-8') as f:
@@ -99,88 +103,74 @@ def data_init(path, DSC):
 # In[5]:
 
 
-
-def read_data(fname, source_word2idx, mode=None):
+#Read raw data and create relative position, sentiment and mask vectors
+def read_data(fname, source_word2idx, max_sent_length, target_maxlen, mode=None):
     source_data, target_data, target_label = list(), list(), list()
     source_loc = list()
     target_mask = list()
-    #max_length = 85
-    max_length = 95
-    
-    target_maxlen = 25
     target_mode = list()
 
     review = open(fname + r'review.txt', 'r', encoding='utf-8').readlines()
     label = open(fname + r'label.txt', 'r', encoding='utf-8').readlines()
     term = open(fname + r'term.txt', 'r', encoding='utf-8').readlines()
     position = open(fname + r'position.txt', 'r', encoding='utf-8').readlines()
+    
     for index, _ in enumerate(review):
-        '''
-        Word Index
-        '''
+        
         sptoks = en_nlp(review[index].strip())
 
-        ### - do not include lengthy reviews
-        if len(sptoks) > 85:
+        #Skip reviews that are bigger than allowed length
+        if len(sptoks) > max_sent_length - 2:
             continue        
         
+        #Get token ids
         idx = []
         mask = []
         len_cnt = 0
         for sptok in sptoks:
             tk = sptok.text.lower()
             
-            if len_cnt < max_length:
-                ### - check if token exists in word to id dict
-                #if tk in source_word2idx:
-
+            if len_cnt < max_sent_length:
                 idx.append(source_word2idx[tk])
                 mask.append(1.)
                 len_cnt += 1
             else:
                 break
 
-        source_data.append(idx + [0] * (max_length - len(idx)))
+        source_data.append(idx + [0] * (max_sent_length - len(idx)))
 
-        '''
-        Position Information
-        '''
+        #Get relative position information
         if mode == 'ASC':
             pos_info = get_position(sptoks, position[index].strip())
             
         elif mode == 'DSC':
             pos_info = get_position(sptoks, '0,0')
             
-        src_loc = pos_info + [0] * (max_length - len(idx))    
-            
-        if len(src_loc) != 95:
-            print(sptoks)
-    
+        src_loc = pos_info + [0] * (max_sent_length - len(idx))    
             
         source_loc.append(src_loc)
 
-        '''
-        Term Index
-        '''
+        #Aspect data and masking
         if mode == 'ASC':
             t_sptoks = en_nlp(term[index].strip())
             tar_idx = []
             tar_mask = []
             
             for t_sptok in t_sptoks:
-                #tk = t_sptok.text.lower()
-                #if tk in source_word2idx:
                 tar_idx.append(source_word2idx[tk])
                 tar_mask.append(1.)
 
             target_data.append(tar_idx + [0] * (target_maxlen - len(tar_idx)))
             target_mask.append(tar_mask + [0.] * (target_maxlen - len(tar_idx)))
             target_mode.append([1., 0.])
+        
+        #Document level data and masking
         elif mode == 'DSC':
             target_data.append([0] * target_maxlen)
             target_mask.append([1.] * target_maxlen)
             target_mode.append([0., 1.])
 
+        #Get sentiment vector
         senti = get_data_label(label[index].strip())
         target_label.append(senti)
 
@@ -210,15 +200,14 @@ def is_number(s):
 # In[7]:
 
 
+#Init word embeddings from Glove (vector represntation of words)
 def init_word_embeddings(path, word2idx, DSC):
     print('path', path)
     wt = np.random.normal(0, 0.05, [len(word2idx), 300])
     with open('data/glove.840B.300d.txt', 'r',encoding= 'utf-8') as f:
         for line in f:
             content = line.strip().split()
-            #content = en_nlp(line.strip())
             if content[0] in word2idx:
-                #print(is_number(content[1]))
                 if is_number(content[1]) == False: continue
                 wt[word2idx[content[0]]] = np.array(list(map(np.float32, content[1:])))
     wt = np.asarray(wt, dtype=np.float32)
@@ -228,6 +217,8 @@ def init_word_embeddings(path, word2idx, DSC):
 
 
 # In[8]:
+
+
 
 
 def separate_hinge_loss(prediction, label, class_num, mode, gamma):

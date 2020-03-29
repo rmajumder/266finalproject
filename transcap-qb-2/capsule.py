@@ -22,7 +22,7 @@ def get_weights_and_biases(w_shape,b_shape,name = None):
 # In[3]:
 
 
-#non-linearity
+#non-linearity applied to vector (capsule)
 #https://www.quora.com/Why-squashing-function-is-important-in-neural-network
 def squash(vector):
     epsilon = 1e-9
