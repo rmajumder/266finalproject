@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[2]:
 
 
 import tensorflow as tf
@@ -11,7 +11,7 @@ from sklearn import metrics
 import numpy as np
 
 
-# In[2]:
+# In[3]:
 
 
 
@@ -257,6 +257,24 @@ class MODEL(object):
                       .format(sacc, sprecision, srecall, sf1))
                 print('max step:{}, early stop step:{}'.format(max_step, early_stop))
                 
+                text_file = open("results.txt", "a")
+                text_file.write("\n")
+                text_file.write('\n{:-^80}'.format('Iter'+str(i)))
+                text_file.write("\n")
+                text_file.write('train loss={:.6f}, dev loss={:.6f}, dev acc={:.4f}, step={}'
+                      .format(tr_loss, dev_loss, dev_acc, step))
+                text_file.write("\n")
+                text_file.write('test acc={:.4f}, test precision={:.4f}, test recall={:.4f}, test f1={:.4f}'
+                      .format(acc, precision, recall, f1))
+                text_file.write("\n")
+                text_file.write('smalltest acc={:.4f}, test precision={:.4f}, test recall={:.4f}, test f1={:.4f}'
+                      .format(sacc, sprecision, srecall, sf1))
+                text_file.write("\n")
+                text_file.write('max step:{}, early stop step:{}'.format(max_step, early_stop))
+                text_file.close()
+            
+            
+            
             print('\n{:-^80}'.format('Mission Complete'))
             max_acc_index = dev_acc_list.index(max(dev_acc_list))
             print("max acc_index:", max_acc_index)
@@ -265,6 +283,20 @@ class MODEL(object):
             print("min loss_index:", min_loss_index)
             print('test_acc: {:.4f},test_f1:{:.4f}\n'.format(test_acc_list[min_loss_index], test_f1_list[min_loss_index]))
 
+            text_file = open("results.txt", "a")
+            text_file.write("\n")
+            text_file.write('\n{:-^80}'.format('Mission Complete'))
+            text_file.write("\n")
+            text_file.write("max acc_index:" + str(max_acc_index))
+            text_file.write("\n")
+            text_file.write('test_acc: {:.4f},test_f1:{:.4f}'.format(test_acc_list[max_acc_index], test_f1_list[max_acc_index]))
+            min_loss_index = dev_loss_list.index(min(dev_loss_list))
+            text_file.write("\n")
+            text_file.write("min loss_index:" + str(min_loss_index))
+            text_file.write("\n")
+            text_file.write('test_acc: {:.4f},test_f1:{:.4f}\n'.format(test_acc_list[min_loss_index], test_f1_list[min_loss_index]))
+            text_file.close()
+            
     def get_batch_data(self, x, y, target_words, tar_mask, loc, mode, batch_size, keep_prob1, keep_prob2, is_shuffle=True):
         length = len(y)
         all_index = np.arange(length)

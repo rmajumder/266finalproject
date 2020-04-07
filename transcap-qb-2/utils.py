@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[5]:
 
 
 from collections import Counter
@@ -10,12 +10,15 @@ import tensorflow as tf
 import spacy
 en_nlp = spacy.load("en")
 
+from afinn import Afinn
+af = Afinn()
+
 
 # In[2]:
 
 
 
-def get_position(sptoks, position):
+def get_position1(sptoks, position):
     from_idx = int(position.split(',')[0])
     to_idx = int(position.split(',')[1])
     if from_idx == to_idx == 0:
@@ -40,7 +43,44 @@ def get_position(sptoks, position):
     return pos_info
 
 
-# In[3]:
+# In[1]:
+
+
+def get_position(sptoks, position):
+    from_idx = int(position.split(',')[0])
+    to_idx = int(position.split(',')[1])
+    if from_idx == to_idx == 0:
+        pos_info = [0] * len(sptoks)
+    else:
+        aspect_is = []
+        
+        for sptok in sptoks:
+            if sptok.idx < to_idx and sptok.idx + len(sptok.text) > from_idx:
+                aspect_is.append(sptok.i)
+        
+        #If the aspect position is not found in the tokens
+        if len(aspect_is) == 0:
+            return None
+        
+        pos_info = []
+        
+        #Take the aspect with earliest positioning
+        for _i, sptok in enumerate(sptoks):
+            pos_info.append(min([abs(_i - i) for i in aspect_is]) + 1)
+
+        for _i, sptok in enumerate(sptoks):
+            if pos_info[_i] != 1:
+                sent_score = abs(af.score(str(sptok)))
+                if sent_score != 0.0:
+                    pos_info[_i] = sent_score / pos_info[_i]
+                else:
+                    pos_info[_i] = 0.01
+        
+            
+    return pos_info
+
+
+# In[4]:
 
 
 def get_data_label(label):
@@ -142,6 +182,9 @@ def read_data(fname, source_word2idx, max_sent_length, target_maxlen, mode=None)
         #Get relative position information
         if mode == 'ASC':
             pos_info = get_position(sptoks, position[index].strip())
+            
+            if pos_info == None:
+                continue
             
         elif mode == 'DSC':
             pos_info = get_position(sptoks, '0,0')
