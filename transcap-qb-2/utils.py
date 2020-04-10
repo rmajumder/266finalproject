@@ -14,11 +14,11 @@ from afinn import Afinn
 af = Afinn()
 
 
-# In[2]:
+# In[1]:
 
 
 
-def get_position1(sptoks, position):
+def get_position(sptoks, position):
     from_idx = int(position.split(',')[0])
     to_idx = int(position.split(',')[1])
     if from_idx == to_idx == 0:
@@ -43,10 +43,10 @@ def get_position1(sptoks, position):
     return pos_info
 
 
-# In[1]:
+# In[2]:
 
 
-def get_position(sptoks, position):
+def get_position1(sptoks, position):
     from_idx = int(position.split(',')[0])
     to_idx = int(position.split(',')[1])
     if from_idx == to_idx == 0:
@@ -74,7 +74,7 @@ def get_position(sptoks, position):
                 if sent_score != 0.0:
                     pos_info[_i] = sent_score / pos_info[_i]
                 else:
-                    pos_info[_i] = 0.01
+                    pos_info[_i] = 0.0
         
             
     return pos_info

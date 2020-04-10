@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
 
 
 import tensorflow as tf
 import numpy as np
 
 
-# In[2]:
+# In[ ]:
 
 
 #generate weights and biases
@@ -113,9 +113,14 @@ class CapsLayer(object):
                 '''
                 w_asp, b_asp = get_weights_and_biases([self.kernel_size, embedding_dim, 1, self.num_outputs],
                                                 [self.num_outputs], 'pc2{}'.format(self.kernel_size))
-                aspect_info = tf.contrib.layers.fully_connected(self.aspect, 1, weights_initializer=
-                                tf.random_uniform_initializer(minval=-0.01, maxval=0.01, seed=0.05), activation_fn=None)
+                #aspect_info = tf.contrib.layers.fully_connected(self.aspect, 1, weights_initializer=
+                #                tf.random_uniform_initializer(minval=-0.01, maxval=0.01, seed=0.05), 
+                #                                                activation_fn=None)
 
+                aspect_info = tf.contrib.layers.fully_connected(self.aspect, 1, weights_initializer=
+                                                                tf.contrib.layers.xavier_initializer(), 
+                                                                activation_fn=None)
+                
                 aspect_conv = tf.nn.conv2d(
                     input=tf.reshape(input, [self.batch_size, input_len, embedding_dim, 1]),
                     filter=w_asp,
