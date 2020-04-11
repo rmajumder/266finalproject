@@ -78,3 +78,15 @@ def get_raw_100(score_type):
 def get_raw_100_max(score_type):
     path = 'data/100/results-100-raw-part'
     return get_performance_data(path, score_type, 2, 3)
+
+def get_mix_200(score_type):
+    path = 'data/more-experiments/append-pos-neg-reviews/results-append-pos-neg-'
+    return get_performance_data(path, score_type, 1, 8)
+
+def get_polarity_200(score_type):
+    path = 'data/more-experiments/weights-to-polarized-words/results-200-more-weights-with-high-polarized-words-'
+    return get_performance_data(path, score_type, 1, 8)
+
+def get_lemma_200(score_type):
+    path = 'data/more-experiments/lemma/results-200-lemma-'
+    return get_performance_data(path, score_type, 1, 9)
