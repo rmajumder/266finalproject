@@ -94,4 +94,3 @@ max acc_index:2
 test_acc: 0.7191,test_f1:0.6291
 min loss_index:10
 test_acc: 0.7221,test_f1:0.6301
-
