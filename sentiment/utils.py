@@ -1,6 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[1]:
+
+
+#Reference - https://github.com/NLPWM-WHU/TransCap/tree/master/TransCap
+
+
 # In[5]:
 
 
@@ -46,7 +52,7 @@ def get_position(sptoks, position):
 # In[2]:
 
 
-def get_position1(sptoks, position):
+def get_position_with_weights_on_polarized_words(sptoks, position):
     from_idx = int(position.split(',')[0])
     to_idx = int(position.split(',')[1])
     if from_idx == to_idx == 0:
@@ -72,9 +78,10 @@ def get_position1(sptoks, position):
             if pos_info[_i] != 1:
                 sent_score = abs(af.score(str(sptok)))
                 if sent_score != 0.0:
-                    pos_info[_i] = sent_score / pos_info[_i]
-                else:
-                    pos_info[_i] = 0.0
+                    pos_info[_i] = (pos_info[_i]/sent_score) / 200
+                    #pos_info[_i] = sent_score / pos_info[_i]
+                #else:
+                #    pos_info[_i] = 0.1
         
             
     return pos_info
@@ -181,7 +188,7 @@ def read_data(fname, source_word2idx, max_sent_length, target_maxlen, mode=None)
 
         #Get relative position information
         if mode == 'ASC':
-            pos_info = get_position(sptoks, position[index].strip())
+            pos_info = get_position_with_weights_on_polarized_words(sptoks, position[index].strip())
             
             if pos_info == None:
                 continue

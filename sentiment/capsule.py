@@ -145,6 +145,9 @@ class CapsLayer(object):
                 capsules_concat = tf.concat([capsules_ASC, capsules_DSC], -1) # b, 78, 1, 256, 2
                 mode = tf.tile(tf.reshape(mode, [-1, 1, 1, 1, 2]), [1, capsules_concat.shape[1].value, 1, capsules_concat.shape[3].value, 1]) # b, 78, 1, 256, 2
                 capsules = tf.reduce_sum(capsules_concat * mode, -1)
+                
+                #mode = tf.tile(tf.reshape(mode, [-1, 1, 1, 1, 2]), [1, capsules_ASC.shape[1].value, 1, capsules_ASC.shape[3].value, 1]) # b, 78, 1, 256, 2
+                #capsules = tf.reduce_sum(capsules_ASC * mode, -1)
 
                 # element-wise maximum
                 capsules = tf.transpose(tf.reduce_max(tf.transpose(capsules, [0, 3, 2, 1]), -1, keepdims=True), [0, 3, 2, 1])

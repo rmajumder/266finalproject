@@ -171,10 +171,15 @@ class MODEL(object):
                 tr_target_word = np.concatenate([asc_target_word, dsc_target_word], axis=0)
                 tr_y = np.concatenate([asc_y, dsc_y], axis=0)
                 tr_tarmask = np.concatenate([asc_tarmask, dsc_tarmask], axis=0)
-                
-                
                 tr_loc = np.concatenate([asc_loc, dsc_loc], axis=0)
                 tr_mode = np.concatenate([asc_mode, dsc_mode], axis=0)
+                
+                #tr_x = np.concatenate([asc_x], axis=0)
+                #tr_target_word = np.concatenate([asc_target_word], axis=0)
+                #tr_y = np.concatenate([asc_y], axis=0)
+                #tr_tarmask = np.concatenate([asc_tarmask], axis=0)
+                #tr_loc = np.concatenate([asc_loc], axis=0)
+                #tr_mode = np.concatenate([asc_mode], axis=0)
 
                 tr_loss = 0.
                 for train in self.get_batch_data(tr_x, tr_y, tr_target_word, tr_tarmask, tr_loc, tr_mode,

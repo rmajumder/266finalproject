@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[3]:
+# In[1]:
 
 
 #Reference - https://github.com/NLPWM-WHU/TransCap/tree/master/TransCap
@@ -22,6 +22,8 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import warnings
 warnings.filterwarnings('ignore')
 
+tf.logging.set_verbosity(tf.logging.ERROR)
+
 
 # In[2]:
 
@@ -29,7 +31,7 @@ warnings.filterwarnings('ignore')
 FLAGS = assign_flag_values(tf)
 
 
-# In[6]:
+# In[3]:
 
 
 def main(_):
@@ -70,7 +72,7 @@ def main(_):
     print('Running Time: {:.0f}m {:.0f}s'.format((end_time-start_time) // 60, (end_time-start_time) % 60))
 
 
-# In[7]:
+# In[4]:
 
 
 if __name__ == '__main__':

@@ -6,9 +6,9 @@ def assign_flag_values(tf):
 
     flags.DEFINE_string('ASC', 'qb', 'Aspect level sentiments from QB')
     flags.DEFINE_string('DSC', 'yelp', 'Document level sentiments from Yelp reviews')
-    flags.DEFINE_integer('batch_size', 128, 'Training batch size')
+    flags.DEFINE_integer('batch_size', 256, 'Training batch size')
     flags.DEFINE_float('learning_rate', 0.001, 'Learning rate')
-    flags.DEFINE_integer('n_iter', 25, 'training iteration')
+    flags.DEFINE_integer('n_iter', 35, 'training iteration')
     flags.DEFINE_float('gamma', 0.1, 'gamma')
     flags.DEFINE_integer('embedding_dim', 300, 'dimension of word embedding')
     flags.DEFINE_integer('position_dim', 100, 'dimension of position embedding')
