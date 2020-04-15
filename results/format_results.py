@@ -93,7 +93,7 @@ def get_lemma_200(score_type):
 
 def get_raw_200_40Iter(score_type):
     path = 'data/200/raw-40-iter/results-raw-40-'
-    return get_performance_data(path, score_type, 1, 15)
+    return get_performance_data(path, score_type, 1, 18)
 
 def get_raw_200_40Iter_max(score_type):
     path = 'data/200/raw-40-iter/results-raw-40-'
@@ -101,8 +101,8 @@ def get_raw_200_40Iter_max(score_type):
 
 def get_pos_200_40Iter(score_type):
     path = 'data/200/modified-pos-emb-40-iter/results-pos-40-'
-    return get_performance_data(path, score_type, 1, 15)
+    return get_performance_data(path, score_type, 1, 18)
 
 def get_pos_200_40Iter_max(score_type):
     path = 'data/200/modified-pos-emb-40-iter/results-pos-40-'
-    return get_performance_data(path, score_type, 9, 10)
+    return get_performance_data(path, score_type, 17, 18)
