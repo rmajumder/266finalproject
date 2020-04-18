@@ -53,7 +53,7 @@ def get_raw_200_xavier(score_type):
 
 def get_raw_200_xavier_max(score_type):
     path = 'data/200/raw-xavier/results-200-raw-xavier-init-'
-    return get_performance_data(path, score_type, 10, 11)
+    return get_performance_data(path, score_type, 1, 11)
 
 def get_raw_200_clean(score_type):
     path = 'data/200/clean/results-200-clean-'
