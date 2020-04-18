@@ -106,3 +106,21 @@ def get_pos_200_40Iter(score_type):
 def get_pos_200_40Iter_max(score_type):
     path = 'data/200/modified-pos-emb-40-iter/results-pos-40-'
     return get_performance_data(path, score_type, 17, 18)
+
+
+def get_pos_200_MaxIter(score_type):
+    path = 'data/200/maxiter-pos/results-200-maxiter-'
+    return get_performance_data(path, score_type, 1, 14)
+
+def get_pos_200_MaxIter_max(score_type):
+    path = 'data/200/maxiter-pos/results-200-maxiter-'
+    return get_performance_data(path, score_type, 3, 4)
+
+
+def get_raw_200_MaxIter(score_type):
+    path = 'data/200/maxiter-raw/results-200-maxiter-'
+    return get_performance_data(path, score_type, 1, 13)
+
+def get_raw_200_MaxIter_max(score_type):
+    path = 'data/200/maxiter-raw/results-200-maxiter-'
+    return get_performance_data(path, score_type, 11, 12)
